@@ -117,3 +117,27 @@ Tabla `transfers` (clase `Infrastructure.Entities.Transfer`):
 - `CreateTransferValidator` revisa campos obligatorios (título, montos, etc.).
 - `ValidationBehavior` aplica validación MediatR antes de ejecutar handlers.
 - `GlobalExceptionHandler` maneja excepciones no controladas.
+
+### Docker
+
+Para despliegue en docker mediante docker-compose.yaml
+
+```
+  ms-transferencias:
+    build:
+      context: ./ms-transferencias
+      dockerfile: Dockerfile
+    image: ms-transferencias-api:latest
+    container_name: ms-transferencias
+    ports:
+      - "5000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=postgres;Username=postgres;Password=postgres;Include Error Detail=true;
+      - Configuration__KafkaBootstrapServers=kafka:29092
+      - Serilog__WriteTo__1__Args__serverUrl=http://seq:80
+    depends_on:
+      - postgres
+      - kafka
+      - seq
+```
