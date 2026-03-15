@@ -106,10 +106,9 @@ Tabla `transfers` (clase `Infrastructure.Entities.Transfer`):
 
 1. Clonar repo.
 2. Ajustar `appsettings.json` conexiones (Postgres/Kafka/Seq).
-3. Ejecutar script base de datos.
-4. Ejecutar:
+3. Ejecutar:
    - `dotnet run`
-5. Visitar Swagger:
+4. Visitar Swagger:
    - `https://localhost:5001/swagger`
 
 ## 9. Validaciones y control de errores

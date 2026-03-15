@@ -17,7 +17,7 @@ public static class DependencyInjection
         services.AddCap(x =>
         {
             x.UseEntityFramework<ApplicationDbContext>();
-            x.UseKafka("localhost:9092");
+            x.UseKafka(configuration.GetValue<string>("Configuration:KafkaBootstrapServers"));
         });
         services.AddTransient<ITransferRepository, TransferRepository>();
         services.AddTransient<IMessagePublisher, MessagePublisher>();
