@@ -118,7 +118,7 @@ Tabla `transfers` (clase `Infrastructure.Entities.Transfer`):
 - `ValidationBehavior` aplica validación MediatR antes de ejecutar handlers.
 - `GlobalExceptionHandler` maneja excepciones no controladas.
 
-### Docker
+## 10. Docker
 
 Para despliegue en docker mediante docker-compose.yaml
 
